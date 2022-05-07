@@ -16,16 +16,16 @@ class Ship {
   }
 
   fire() {
+    console.log(this)
+    console.log(alienShip)
     if (this === alienShip) {
       if (ussHelloWorld.hull > 0) {
-        if (Math.random() < this.accuracy) {
-          console.log("USS Hello World has been hit!");
-          ussHelloWorld.hull -= this.firepower;
-        } else {
-          console.log("Missed USS Hello World target");
-        }
+        Math.random() < this.accuracy 
+          ?ussHelloWorld.hull -= this.firepower
+          :alert("Missed USS Hello World target")
+        
       } else {
-        console.log("You Loose");
+        alert("You Loose");
       }
     }
     if (this === ussHelloWorld) {
@@ -69,7 +69,8 @@ let alienShip = generateShip();
 let ussHelloWorld = new Ship(20, 5, 0.7);
 
 //! checking on functionality of alienShip & USSHelloWorld DELETE IN FINAL
-console.log(ussHelloWorld);
+console.log(ussHelloWorld.fire);
 console.log(alienShip);
+
 
 fireBtn.addEventListener("click", ussHelloWorld.fire);
